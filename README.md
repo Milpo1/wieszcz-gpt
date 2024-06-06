@@ -3,3 +3,50 @@
 A fully configurable GPT model implementation from scratch, based on the [GPT 2 Paper](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf).
 
 Example usage can be found in the demo.py file.
+
+```python
+# %%
+from tokenizer import Tokenizer
+from model import WieszczGPT, GPTConfig
+from trainer import Trainer, TextDataset, TrainConfig
+import torch
+
+with open('mickiewicz.txt', 'r') as file:
+    raw_data = file.read()
+
+model = WieszczGPT(GPTConfig)
+model.to(model.device)
+    
+tok = Tokenizer(model.config.vocab_size)
+
+data = tok.encode(raw_data)
+train_dataset = TextDataset(data,model.config.block_size)
+
+trainer = Trainer(model,train_dataset, val_dataset,)
+trainer.train()
+
+# Genrate a few tokens with your newly trained GPT!
+model.eval()
+context = torch.zeros((1, model_config.block_size), dtype=torch.long, device=model.device)
+gen = model.generate(context, max_new_tokens=2000)[0].tolist()
+print(tok.decode(gen))
+
+```
+Possible output:
+```
+Przebóg! Zasnąłem w duszę nie jagnet wybaczy. 
+Ja bym imię poznasz. Już mi ranek: złamie ulgę zadzone!
+I nie dostałam skrzywdziłem chłopczyna:
+Lecz co idź tu, luba, tu nie gada!
+
+GUSTAW
+W domu i z innych wojskich Litworyjewa
+Skacze, drugi i szpieg, i z tłumu nagle,
+Gdy Bóg dotąd cały do brudzy przebacz hasło,
+Gdyby ja nam gościom i zacznie zawierzeć pacierze.
+Już dzieci wroga wpół wojene zagrał,
+Nim bojów zacznie bywał się szlachtę właśnie:
+Bo bracia stary en bez mnie bez szlachty i las podobnych
+ano ruszach i tak karewicz na parkanych.
+```
+Shout out to Adam Mickiewicz and Andrej Karpathy.
