@@ -32,7 +32,7 @@ gen = model.generate(context, max_new_tokens=2000)[0].tolist()
 print(tok.decode(gen))
 
 ```
-Possible output:
+Possible output or below in short:
 ```
 Przebóg! Zasnąłem w duszę nie jagnet wybaczy. 
 Ja bym imię poznasz. Już mi ranek: złamie ulgę zadzone!
