@@ -25,7 +25,7 @@ train_dataset = TextDataset(data,model.config.block_size)
 trainer = Trainer(model,train_dataset, val_dataset,)
 trainer.train()
 
-# Genrate a few tokens with your newly trained GPT!
+# Generate a few tokens with your newly trained GPT!
 model.eval()
 context = torch.zeros((1, model_config.block_size), dtype=torch.long, device=model.device)
 gen = model.generate(context, max_new_tokens=2000)[0].tolist()
