@@ -1,6 +1,6 @@
 # WieszczGPT
 
-A fully configurable GPT model & tokenizer implementation made from scratch, with the architecture of [GPT 2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf).
+A fully configurable GPT model & tokenizer made from scratch, with the architecture of [GPT 2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf).
 
 Example usage can be found in the demo.py file or below in short:
 
