@@ -1,4 +1,3 @@
-import pandas as pd
 import torch
 BASE_CHAR = 256
 class Tokenizer():
