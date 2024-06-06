@@ -2,7 +2,7 @@
 
 A fully configurable GPT model implementation from scratch, based on the [GPT 2 Paper](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf).
 
-Example usage can be found in the demo.py file.
+Example usage can be found in the demo.py file or below in short:
 
 ```python
 # %%
@@ -32,7 +32,7 @@ gen = model.generate(context, max_new_tokens=2000)[0].tolist()
 print(tok.decode(gen))
 
 ```
-Possible output or below in short:
+Possible output (output quality depends on the size of the model):
 ```
 Przebóg! Zasnąłem w duszę nie jagnet wybaczy. 
 Ja bym imię poznasz. Już mi ranek: złamie ulgę zadzone!
