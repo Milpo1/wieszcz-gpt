@@ -7,14 +7,14 @@ Example usage can be found in the demo.py file or below in short:
 ```python
 # %%
 from tokenizer import Tokenizer
-from model import WieszczGPT, GPTConfig
-from trainer import Trainer, TextDataset, TrainConfig
+from model import WieszczGPT
+from trainer import Trainer, TextDataset
 import torch
 
 with open('mickiewicz.txt', 'r') as file:
     raw_data = file.read()
 
-model = WieszczGPT(GPTConfig)
+model = WieszczGPT() # Default model config
 model.to(model.device)
     
 tok = Tokenizer(model.config.vocab_size)
@@ -22,7 +22,7 @@ tok = Tokenizer(model.config.vocab_size)
 data = tok.encode(raw_data)
 train_dataset = TextDataset(data,model.config.block_size)
 
-trainer = Trainer(model,train_dataset, val_dataset,)
+trainer = Trainer(model, train_dataset) # Default train config
 trainer.train()
 
 # Generate a few tokens with your newly trained GPT!
